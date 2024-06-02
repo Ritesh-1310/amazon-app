@@ -25,7 +25,7 @@ mongoose.connect(mongoDbPath, { useNewUrlParser: true, useUnifiedTopology: true 
     .then(() => {
         console.log("MongoDB connected...");
 
-        app.get("/", (req, res) => {
+        app.get("/api", (req, res) => {
             const response = { statuscode: res.statusCode, message: "Amazon API is working" };
             res.json(response);
         });
