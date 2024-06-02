@@ -21,15 +21,18 @@ app.use(productRouter);
 app.use(userRouter);
 
 // Connections
-mongoose
-  .connect(mongoDbPath)
-  .then(() => {
-    console.log("MongoDB connected...");
-  })
-  .catch((e) => {
-    console.log(e);
-  });
+mongoose.connect(mongoDbPath, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log("MongoDB connected...");
 
-app.listen(port, "0.0.0.0", () => {
-  console.log(`connected at port ${port}`);
-});
+        app.get("/", (req, res) => {
+            const response = { statuscode: res.statusCode, message: "Amazon API is working" };
+            res.json(response);
+        });
+
+        const PORT = process.env.PORT || 8000;
+        app.listen(PORT, () => {
+            console.log(`Server started at PORT: ${PORT}`);
+        });
+    })
+    .catch(err => console.log(err));

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 // String uri = 'http://192.168.227.138:3000'; //(when connected with my phone USB Tethering)
-String uri = 'http://192.168.191.164:3001';  //(when connected with my phone wifi)
+// String uri = 'http://192.168.191.164:3001';  //(when connected with my phone wifi)
+String uri = 'https://amazon-app-dusky.vercel.app/';  //(when connected with my phone wifi)
 
 class GlobalVariables {
   // COLORS
